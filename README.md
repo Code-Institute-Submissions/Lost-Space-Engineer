@@ -1,31 +1,78 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# The Lost Space Engineer
 
-Welcome Rob Cole,
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **August 17, 2021**
 
-## Reminders
+To visit the live version of the site (hosted by Heroku) click [here]()
 
-* Your code must be placed in the `run.py` file
-* Your dependencies must be placed in the `requirements.txt` file
-* Do not edit any of the other files or your code may not deploy properly
 
-## Creating the Heroku app
+## User Stories
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
 
-1. `heroku/python`
-2. `heroku/nodejs`
+## UX
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+### Wireframes and Designs
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
+Below are a couple of screenshots of flowcharts created for this project.
 
-Connect your GitHub repository and deploy as normal.
 
-## Constraints
+## Features 
 
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
+Below are a list of key features and future features.
 
------
-Happy coding!
+### Existing Features
+
+
+### Features Left to Implement
+
+
+## Technologies Used
+
+During development of the site a number of programs and web based applications were used. You can find a list of the below:
+
+[Lucidcharts](https://www.lucidchart.com/pages/) - Used to create the Flowcharts
+
+[Github](https://github.com/) - Used to host the project
+
+[Gitpod](https://www.gitpod.io/) - Used as a cloud based IDE to code the project
+
+[GIT](https://en.wikipedia.org/wiki/Git) - Used for version control
+
+[Heroku](https://www.heroku.com/) - Used to host the deployed site
+
+Code that was used to develop this site are:
+
+[Python](https://www.python.org/)
+
+
+## Testing
+
+For all testing, please refer to the [TESTING.md](TESTING.md) file.
+
+## Deployment
+
+ The site was deployed to GitHub pages. The steps to deploy are as follows: 
+ - In the GitHub repository, navigate to the Settings tab 
+ - From the source section drop-down menu, select the Main Branch 
+ - Once the Main Branch has been selected, the page will be automatically refreshed with a detailed ribbon display to indicate the successful deployment. 
+
+[Link to deployed site]()
+
+### Local Deployment
+
+If you would like to make a clone of this repository, you can type the following command in your IDE terminal:
+
+- `git clone https://github.com/robcole-dev/Lost-Space-Engineer.git`
+
+Alternatively, if using Git pod, you can click below to create your own workspace using this repository.
+
+[![Open in Git pod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/robcole-dev/Lost-Space-Engineer)
+
+## Credits 
+
+### Content 
+
+
+### Media
+
+
+### Acknowledgments
