@@ -1,3 +1,20 @@
+class Tool:
+      def __init__(self, name):
+            """
+            Properties for tools
+            """
+            self.name = name
+
+
+class Systems:
+      def __init__(self, system, status):
+            """
+            Properties for the sub-systems
+            """
+            self.system = system
+            self.status = status
+
+
 def start_game():
       """
       looks for input from player to begin the adventure
