@@ -1,5 +1,6 @@
 from prompt_toolkit import prompt
 
+
 class Tool:
     """Main function"""
     def __init__(self, name):
@@ -15,6 +16,16 @@ class Systems:
         """
         self.system = system
         self.status = status
+
+
+def directions_four():
+    """Four directions function"""
+    print("You have 4 directions to go...")
+    print("Please choose one of the following")
+    print("left, forward, right, go-back")
+    direction = input("Which way do you want to go??\n")
+
+    return direction
 
 
 def start_game():
@@ -51,14 +62,15 @@ def first_steps():
     print("You have woken from stasis. However, something doesn't seem right.")
     print("After gathering your senses you stumble out the room to find lights"
           " flickering everywhere and nobody in sight.\n")
-    first = input("You have 3 choices, Left, Forward or Right....\n"
-                  "Please choose a direction")
-    if first == "left":
-        function()
-    elif first == "forward":
-        function()
-    elif first == "right":
-        function()
+    directions_four()
+    if direction == "left":
+        print("left")
+    elif direction == "forward":
+        print("forward")
+    elif direction == "right":
+        print("right")
+    elif direction == "go-back":
+        print("go-back")
 
 
 def main():
