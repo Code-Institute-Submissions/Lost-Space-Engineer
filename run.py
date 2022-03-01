@@ -1,3 +1,5 @@
+from prompt_toolkit import prompt
+
 class Tool:
     """Main function"""
     def __init__(self, name):
