@@ -1,10 +1,11 @@
 from prompt_toolkit import prompt
 
-inv_slots = 0
+inv_slots = []
 navigation = False
 power = False
 life_support = False
 light_speed_drive = False
+aval_tools = ["Ductape", "Spanner", "Hammer", "Screwdriver", "String", "Super Glue"]
 
 class Tool:
     """Main function"""
