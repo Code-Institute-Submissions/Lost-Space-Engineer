@@ -1,5 +1,10 @@
 from prompt_toolkit import prompt
 
+inv_slots = 0
+navigation = False
+power = False
+life_support = False
+light_speed_drive = False
 
 class Tool:
     """Main function"""
@@ -28,6 +33,13 @@ def directions(values):
 
     return direction
 
+
+def tools():
+    """Function to collect a random tool"""
+    print("Congratulations you have found a room containing tools")
+    print("You look around and find a box that looks hopefull")
+
+
 def start_game():
     """looks for input from player to begin the adventure"""
     print("Welcome to the text adventure game Lost Space Engineer\n")
@@ -55,13 +67,6 @@ def play_check(value):
         return False
 
     return True
-
-
-def tools():
-    """Function to collect a random tool"""
-    print("Congratulations you have found a room containing tools")
-    print("You look around and find a box that looks hopefull")
-
     
 
 def first_steps():
