@@ -1,10 +1,10 @@
 from prompt_toolkit import prompt
 
 inv_slots = []
-navigation = False
-power = False
-life_support = False
-light_speed_drive = False
+NAVIGATION = False
+POWER = False
+LIFE_SUPPORT = False
+LIGHT_SPEED_DRIVE = False
 aval_tools = ["Ductape", "Spanner", "Hammer", "Screwdriver", "String",
               "Super Glue"]
 
@@ -21,7 +21,7 @@ class Inventory:
     """Class for storing Inventory"""
     def __init__(self):
         self.tools = {}
-   
+
     def add_item(self, tool):
         self.tools[tool.name] = tool
 
@@ -75,7 +75,7 @@ def play_check(value):
         return False
 
     return True
-    
+
 
 def first_steps():
     """First Steps scenario"""
