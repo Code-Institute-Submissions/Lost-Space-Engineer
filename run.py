@@ -5,23 +5,30 @@ navigation = False
 power = False
 life_support = False
 light_speed_drive = False
-aval_tools = ["Ductape", "Spanner", "Hammer", "Screwdriver", "String", "Super Glue"]
+aval_tools = ["Ductape", "Spanner", "Hammer", "Screwdriver", "String",
+              "Super Glue"]
 
-class Tool:
-    """Main function"""
-    def __init__(self, name):
+
+class Tools:
+    """Class for tools"""
+    def __init__(self, name, durability):
         """Properties for tools"""
         self.name = name
+        self.durability = durability
 
 
-class Systems:
-    """Main System function"""
-    def __init__(self, system, status):
-        """
-        Properties for the sub-systems
-        """
-        self.system = system
-        self.status = status
+class Inventory:
+    """Class for storing Inventory"""
+    def __init__(self):
+        self.tools = {}
+   
+    def add_item(self, tool):
+        self.tools[tool.name] = tool
+
+    def print_inv(self):
+        print('\t'.join(['Name', 'Dur']))
+        for tool in self.tools.values():
+            print('\t'.join([str(x) for x in [tool.name, tool.durability]]))
 
 
 def directions(values):
@@ -85,7 +92,6 @@ def first_steps():
         print("right")
     elif direction == "go-back":
         print("go-back")
-
 
 
 def main():
