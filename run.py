@@ -18,15 +18,15 @@ class Systems:
         self.status = status
 
 
-def directions_four():
-    """Four directions function"""
-    print("You have 4 directions to go...")
+def directions(values):
+    """directions function"""
+    count = len(values)
+    print(f"You have {count} directions to go...")
     print("Please choose one of the following")
-    print("left, forward, right, go-back")
+    print(f"{values}")
     direction = input("Which way do you want to go??\n")
 
     return direction
-
 
 def start_game():
     """looks for input from player to begin the adventure"""
@@ -57,12 +57,20 @@ def play_check(value):
     return True
 
 
+def tools():
+    """Function to collect a random tool"""
+    print("Congratulations you have found a room containing tools")
+    print("You look around and find a box that looks hopefull")
+
+    
+
 def first_steps():
     """First Steps scenario"""
     print("You have woken from stasis. However, something doesn't seem right.")
     print("After gathering your senses you stumble out the room to find lights"
           " flickering everywhere and nobody in sight.\n")
-    directions_four()
+    ways = ["left", "forward", "right", "backwards"]
+    direction = directions(ways)
     if direction == "left":
         print("left")
     elif direction == "forward":
@@ -71,6 +79,7 @@ def first_steps():
         print("right")
     elif direction == "go-back":
         print("go-back")
+
 
 
 def main():
