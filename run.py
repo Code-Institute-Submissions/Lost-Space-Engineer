@@ -1,3 +1,5 @@
+from prompt_toolkit.validation import Validator, ValidationError
+from prompt_toolkit.completion import WordCompleter
 from prompt_toolkit import prompt
 
 inv_slots = []
@@ -92,6 +94,8 @@ def first_steps():
         print("right")
     elif direction == "go-back":
         print("go-back")
+
+
 
 
 def main():
