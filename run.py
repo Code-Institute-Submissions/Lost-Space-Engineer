@@ -21,6 +21,20 @@ class DirectionValidator(Validator):
             raise ValidationError(message="This is not a correct direction!")
 
 
+class SubSystem:
+    """Sub Systems"""
+    def __init__(self, system, power, fixed):
+        self.system = system
+        self.power = power
+        self.fixed = fixed
+    
+    def power_change(self, system, power):
+        if power is True:
+            print(f"{system} is currently online")
+        else:
+            print(f"{system} is currently offline")
+
+
 class Tools:
     """Class for tools"""
     def __init__(self, name, durability):
@@ -58,7 +72,7 @@ def tools():
     """Function to collect a random tool"""
     print("Congratulations you have found a room containing tools")
     print("You look around and find a box that looks hopefull")
-
+    
 
 def start_game():
     """looks for input from player to begin the adventure"""
@@ -102,8 +116,8 @@ def first_steps():
         print("forward")
     elif direction == "right":
         print("right")
-    elif direction == "go-back":
-        print("go-back")
+    elif direction == "backwards":
+        print("backwards")
 
 
 def main():
