@@ -3,12 +3,22 @@ from prompt_toolkit.completion import WordCompleter
 from prompt_toolkit import prompt
 
 inv_slots = []
+
 NAVIGATION = False
 POWER = False
 LIFE_SUPPORT = False
 LIGHT_SPEED_DRIVE = False
 aval_tools = ["Ductape", "Spanner", "Hammer", "Screwdriver", "String",
               "Super Glue"]
+
+
+class DirectionValidator(Validator):
+    """Direction validator"""
+    def validate(self, document):
+        text = document.text
+        words = ["left", "right", "forward", "backwards"]
+        if text not in words:
+            raise ValidationError(message="This is not a correct direction!")
 
 
 class Tools:
@@ -39,7 +49,7 @@ def directions(values):
     print(f"You have {count} directions to go...")
     print("Please choose one of the following")
     print(f"{values}")
-    direction = input("Which way do you want to go??\n")
+    direction = prompt("Which way do you want to go??\n", validator=DirectionValidator())
 
     return direction
 
@@ -94,8 +104,6 @@ def first_steps():
         print("right")
     elif direction == "go-back":
         print("go-back")
-
-
 
 
 def main():
