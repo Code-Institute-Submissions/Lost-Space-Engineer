@@ -27,7 +27,7 @@ class SubSystem:
         self.system = system
         self.power = power
         self.fixed = fixed
-    
+
     def power_change(self, system, power):
         if power is True:
             print(f"{system} is currently online")
@@ -63,7 +63,8 @@ def directions(values):
     print(f"You have {count} directions to go...")
     print("Please choose one of the following")
     print(f"{values}")
-    direction = prompt("Which way do you want to go??\n", validator=DirectionValidator())
+    direction = prompt(
+        "Which way do you want to go??\n", validator=DirectionValidator())
 
     return direction
 
@@ -72,7 +73,7 @@ def tools():
     """Function to collect a random tool"""
     print("Congratulations you have found a room containing tools")
     print("You look around and find a box that looks hopefull")
-    
+
 
 def start_game():
     """looks for input from player to begin the adventure"""
