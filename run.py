@@ -1,3 +1,4 @@
+import os
 from prompt_toolkit.validation import Validator, ValidationError
 from prompt_toolkit.completion import WordCompleter
 from prompt_toolkit import prompt
@@ -10,6 +11,10 @@ LIFE_SUPPORT = False
 LIGHT_SPEED_DRIVE = False
 aval_tools = ["Ductape", "Spanner", "Hammer", "Screwdriver", "String",
               "Super Glue"]
+
+
+def clear():
+    os.system("cls" if os.name == "nt" else "clear")
 
 
 class DirectionValidator(Validator):
@@ -62,7 +67,7 @@ def directions(values):
     count = len(values)
     print(f"You have {count} directions to go...")
     print("Please choose one of the following")
-    print(f"{values}")
+    print(values)
     direction = prompt(
         "Which way do you want to go??\n", validator=DirectionValidator())
 
@@ -98,6 +103,7 @@ def play_check(value):
                 "Please type 'play' in all lowercase"
             )
     except ValueError as e:
+        clear()
         print(f"Invalid data: {e}, please try again.\n")
         return False
 
@@ -121,8 +127,5 @@ def first_steps():
         print("backwards")
 
 
-def main():
-    start_game()
-
-
-main()
+clear()
+start_game()
