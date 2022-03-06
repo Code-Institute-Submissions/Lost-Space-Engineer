@@ -29,9 +29,17 @@ class SubSystem:
 
     def power_change(self, system, power):
         if power is True:
-            print(f"{system} is currently online")
+            print(f"{system} is currently online and doesn't need repairing")
         else:
-            print(f"{system} is currently offline")
+            self.power = True
+            print(f"{system} is coming online")
+
+    def repair(self, fixed):
+        if fixed is True:
+            print(f"{system} is currently in working order")
+        else:
+            self.fixed = False
+            print(f"{system} is now repaired! Well done!")
 
 
 NAVIGATION = SubSystem("navigation", False, False)
