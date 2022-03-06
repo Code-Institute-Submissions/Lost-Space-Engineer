@@ -3,12 +3,6 @@ from prompt_toolkit.validation import Validator, ValidationError
 from prompt_toolkit.completion import WordCompleter
 from prompt_toolkit import prompt
 
-inv_slots = []
-
-NAVIGATION = False
-POWER = False
-LIFE_SUPPORT = False
-LIGHT_SPEED_DRIVE = False
 aval_tools = ["Ductape", "Spanner", "Hammer", "Screwdriver", "String",
               "Super Glue"]
 
@@ -38,6 +32,12 @@ class SubSystem:
             print(f"{system} is currently online")
         else:
             print(f"{system} is currently offline")
+
+
+NAVIGATION = SubSystem("navigation", False, False)
+POWER = SubSystem("power", False, False)
+LIGHTSPEEDDRIVE = SubSystem("Light Speed Drive", False, False)
+LIFESUPPORT = SubSystem("Life Support", False, False)
 
 
 class Tools:
@@ -92,6 +92,7 @@ def start_game():
 
         if play_check(play):
             print("Good Luck and have fun!!")
+
             first_steps()
 
 
