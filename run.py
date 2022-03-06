@@ -1,4 +1,5 @@
 import os
+import random
 from prompt_toolkit.validation import Validator, ValidationError
 from prompt_toolkit.completion import WordCompleter
 from prompt_toolkit import prompt
@@ -51,7 +52,6 @@ LIFESUPPORT = SubSystem("Life Support", False, False)
 class Tools:
     """Class for tools"""
     def __init__(self, name, durability):
-        """Properties for tools"""
         self.name = name
         self.durability = durability
 
