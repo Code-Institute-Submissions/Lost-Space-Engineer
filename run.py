@@ -127,7 +127,7 @@ def stage_one():
     ways = ["left", "forward", "right", "backwards"]
     direction = directions(ways)
     if direction == "left":
-        print("left")
+        stage_two()
     elif direction == "forward":
         print("forward")
     elif direction == "right":
@@ -138,7 +138,19 @@ def stage_one():
 
 def stage_two():
     """Stage Two Scenario"""
-    print("You have found yourself at a cross road with 2 available doors.")
+    clear()
+    if POWER.power is False:
+        print("You travel down a coridoor, the lights are flickering on and off.")
+    else:
+        print("You travel down a coridoor, the lights are blinking red")
+    print("you get to the end of the coridoor and find 2 short coridoors"
+          " with doors at the end.")
+    ways = ["left", "forward"]
+    direction = directions(ways)
+    if direction == "left":
+        print("left")
+    elif direction == "forward":
+        print("forward")
 
 
 clear()
