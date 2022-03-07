@@ -101,7 +101,7 @@ def start_game():
         if play_check(play):
             print("Good Luck and have fun!!")
 
-            first_steps()
+            stage_one()
 
 
 def play_check(value):
@@ -119,7 +119,7 @@ def play_check(value):
     return True
 
 
-def first_steps():
+def stage_one():
     """First Steps scenario"""
     print("You have woken from stasis. However, something doesn't seem right.")
     print("After gathering your senses you stumble out the room to find lights"
