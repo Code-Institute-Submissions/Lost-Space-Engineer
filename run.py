@@ -6,18 +6,19 @@ from prompt_toolkit import prompt
 
 aval_tools = ["Ductape", "Spanner", "Hammer", "Screwdriver", "String",
               "Super Glue"]
+ways = {}
 
 
 def clear():
     os.system("cls" if os.name == "nt" else "clear")
 
 
-class DirectionValidator(Validator):
+class DirectionValidator(Validator, ways):
     """Direction validator"""
     def validate(self, document):
         text = document.text
-        words = ["left", "right", "forward", "backwards"]
-        if text not in words:
+        # words = ["left", "right", "forward", "backwards"]
+        if text not in ways:
             raise ValidationError(message="This is not a correct direction!")
 
 
@@ -77,7 +78,8 @@ def directions(values):
     print("Please choose one of the following")
     print(values)
     direction = prompt(
-        "Which way do you want to go??\n", validator=DirectionValidator())
+        "Which way do you want to go??\n",
+        validator=DirectionValidator(values))
 
     return direction
 
@@ -140,7 +142,8 @@ def stage_two():
     """Stage Two Scenario"""
     clear()
     if POWER.power is False:
-        print("You travel down a coridoor, the lights are flickering on and off.")
+        print("You travel down a coridoor,"
+              " the lights are flickering on and off.")
     else:
         print("You travel down a coridoor, the lights are blinking red")
     print("you get to the end of the coridoor and find 2 short coridoors"
