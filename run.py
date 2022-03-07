@@ -136,5 +136,10 @@ def stage_one():
         print("backwards")
 
 
+def stage_two():
+    """Stage Two Scenario"""
+    print("You have found yourself at a cross road with 2 available doors.")
+
+
 clear()
 start_game()
