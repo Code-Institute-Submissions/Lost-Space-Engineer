@@ -6,19 +6,18 @@ from prompt_toolkit import prompt
 
 aval_tools = ["Ductape", "Spanner", "Hammer", "Screwdriver", "String",
               "Super Glue"]
-ways = {}
 
 
 def clear():
     os.system("cls" if os.name == "nt" else "clear")
 
 
-class DirectionValidator(Validator, ways):
+class DirectionValidator(Validator):
     """Direction validator"""
     def validate(self, document):
         text = document.text
-        # words = ["left", "right", "forward", "backwards"]
-        if text not in ways:
+        words = ["left", "right", "forward", "backwards"]
+        if text not in words:
             raise ValidationError(message="This is not a correct direction!")
 
 
@@ -79,7 +78,7 @@ def directions(values):
     print(values)
     direction = prompt(
         "Which way do you want to go??\n",
-        validator=DirectionValidator(values))
+        validator=DirectionValidator())
 
     return direction
 
