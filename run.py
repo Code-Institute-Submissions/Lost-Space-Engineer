@@ -155,5 +155,11 @@ def stage_two():
         print("forward")
 
 
+def stage_three():
+    """Stage Three Scenario"""
+    clear()
+    
+
+
 clear()
 start_game()
