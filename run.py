@@ -7,6 +7,8 @@ from prompt_toolkit import prompt
 aval_tools = ["Ductape", "Spanner", "Hammer", "Screwdriver", "String",
               "Super Glue"]
 
+PREV_POSITION = ""
+
 
 def clear():
     os.system("cls" if os.name == "nt" else "clear")
@@ -101,8 +103,8 @@ def start_game():
 
         if play_check(play):
             print("Good Luck and have fun!!")
-
-            stage_one()
+            PREV_POSITION = "Start Game"
+            stage_one(PREV_POSITION)
 
 
 def play_check(value):
@@ -120,19 +122,20 @@ def play_check(value):
     return True
 
 
-def stage_one():
+def stage_one(PREV_POSITION):
     """First Steps scenario"""
     print("You have woken from stasis. However, something doesn't seem right.")
     print("After gathering your senses you stumble out the room to find lights"
           " flickering everywhere and nobody in sight.\n")
     ways = ["left", "forward", "right", "backwards"]
     direction = directions(ways)
+    PREV_POSITION = "stage_one"
     if direction == "left":
-        stage_two()
+        stage_two(PREV_POSITION)
     elif direction == "forward":
-        stage_three()
+        stage_three(PREV_POSITION)
     elif direction == "right":
-        stage_four()
+        stage_four(PREV_POSITION)
     elif direction == "backwards":
         print("As you left the room the door slams shut behind you and you're "
               "unable to get back in")
@@ -148,12 +151,14 @@ def stage_two():
         print("You travel down a coridoor, the lights are blinking red")
     print("you get to the end of the coridoor and find 2 short coridoors"
           " with doors at the end.")
-    ways = ["left", "forward"]
+    ways = ["left", "forward", "backwards"]
     direction = directions(ways)
     if direction == "left":
-        print("left")
+        print("Power Sub system")
     elif direction == "forward":
-        print("forward")
+        print("Tool")
+    elif direction == "backwards":
+        stage_one()
 
 
 def stage_three():
@@ -164,13 +169,13 @@ def stage_three():
     ways = ["left", "forward", "right", "backwards"]
     direction = directions(ways)
     if direction == "left":
-        print("left")
+        print("Sub System Navigation")
     elif direction == "forward":
-        print("forward")
+        print("Tool")
     elif direction == "right":
-        print("right")
+        print("Locked Airlock")
     elif direction == "backwards":
-        print("backwards")
+        stage_one()
 
 
 def stage_four():
@@ -181,11 +186,11 @@ def stage_four():
     ways = ["left", "right", "backwards"]
     direction = directions(ways)
     if direction == "left":
-        print("left")
+        print("Sub system Life Support")
     elif direction == "right":
-        print("right")
+        stage_five()
     elif direction == "backwards":
-        print("backwards")
+        stage_one()
 
 
 def stage_five():
@@ -196,13 +201,13 @@ def stage_five():
     ways = ["left", "forward", "right", "backwards"]
     direction = directions(ways)
     if direction == "left":
-        print("left")
+        print("Tool")
     elif direction == "forward":
-        print("forward")
+        stage_six()
     elif direction == "right":
-        print("right")
+        print("Sub System LSD")
     elif direction == "backwards":
-        print("backwards")
+        stage_four()
 
 
 def stage_six():
@@ -213,11 +218,11 @@ def stage_six():
     ways = ["forward", "right", "backwards"]
     direction = directions(ways)
     if direction == "forward":
-        print("forward")
+        finish()
     elif direction == "right":
-        print("right")
+        print("Tool")
     elif direction == "backwards":
-        print("backwards")
+        stage_five()
 
 
 def finish():
