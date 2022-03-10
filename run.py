@@ -130,11 +130,12 @@ def stage_one():
     if direction == "left":
         stage_two()
     elif direction == "forward":
-        print("forward")
+        stage_three()
     elif direction == "right":
-        print("right")
+        stage_four()
     elif direction == "backwards":
-        print("backwards")
+        print("As you left the room the door slams shut behind you and you're "
+              "unable to get back in")
 
 
 def stage_two():
@@ -158,7 +159,72 @@ def stage_two():
 def stage_three():
     """Stage Three Scenario"""
     clear()
-    
+    print("")
+    print("")
+    ways = ["left", "forward", "right", "backwards"]
+    direction = directions(ways)
+    if direction == "left":
+        print("left")
+    elif direction == "forward":
+        print("forward")
+    elif direction == "right":
+        print("right")
+    elif direction == "backwards":
+        print("backwards")
+
+
+def stage_four():
+    """Stage four Scenario"""
+    clear()
+    print("")
+    print("")
+    ways = ["left", "right", "backwards"]
+    direction = directions(ways)
+    if direction == "left":
+        print("left")
+    elif direction == "right":
+        print("right")
+    elif direction == "backwards":
+        print("backwards")
+
+
+def stage_five():
+    """Stage five Scenario"""
+    clear()
+    print("")
+    print("")
+    ways = ["left", "forward", "right", "backwards"]
+    direction = directions(ways)
+    if direction == "left":
+        print("left")
+    elif direction == "forward":
+        print("forward")
+    elif direction == "right":
+        print("right")
+    elif direction == "backwards":
+        print("backwards")
+
+
+def stage_six():
+    """Stage six Scenario"""
+    clear()
+    print("")
+    print("")
+    ways = ["forward", "right", "backwards"]
+    direction = directions(ways)
+    if direction == "forward":
+        print("forward")
+    elif direction == "right":
+        print("right")
+    elif direction == "backwards":
+        print("backwards")
+
+
+def finish():
+    """The Finish - Game Over"""
+    clear()
+    print("")
+    print("")
 
 
 clear()
