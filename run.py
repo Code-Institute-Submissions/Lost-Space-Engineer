@@ -55,21 +55,22 @@ LIGHTSPEEDDRIVE = SubSystem("Light Speed Drive", False, False)
 LIFESUPPORT = SubSystem("Life Support", False, False)
 
 
-class Tools:
-    """
-    Class for tools
-    """
-    def __init__(self, name, durability):
-        self.name = name
-        self.durability = durability
+# class Tools:
+#     """
+#     Class for tools
+#     """
+#     def __init__(self, name, durability):
+#         self.name = name
+#         self.durability = durability
 
 
 class Inventory:
     """
     Class for storing Inventory
     """
-    def __init__(self):
+    def __init__(self, durability):
         self.tools = {}
+        self.durability = durability
 
     def add_item(self, tool):
         self.tools[tool.name] = tool
@@ -101,6 +102,9 @@ def tools():
     """
     print("Congratulations you have found a room containing a tool")
     print("You look around and find a box that looks hopefull")
+    room_tool = random.choice(aval_tools)
+    room_dura = random.randint(1, 100)
+    gettool = prompt("")
 
 
 def start_game():
@@ -178,7 +182,7 @@ def stage_two(PREV_POSITION):
     if direction == "left":
         print("Power Sub system")
     elif direction == "forward":
-        print("Tool")
+        tools()
     elif direction == "backwards":
         stage_one(PREV_POSITION)
 
