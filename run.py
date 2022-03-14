@@ -15,7 +15,9 @@ def clear():
 
 
 class DirectionValidator(Validator):
-    """Direction validator"""
+    """
+    Direction validator
+    """
     def validate(self, document):
         text = document.text
         words = ["left", "right", "forward", "backwards"]
@@ -24,7 +26,9 @@ class DirectionValidator(Validator):
 
 
 class SubSystem:
-    """Sub Systems"""
+    """
+    Sub Systems
+    """
     def __init__(self, system, power, fixed):
         self.system = system
         self.power = power
@@ -45,21 +49,25 @@ class SubSystem:
             print(f"{system} is now repaired! Well done!")
 
 
-NAVIGATION = SubSystem("navigation", False, False)
-POWER = SubSystem("power", False, False)
+NAVIGATION = SubSystem("Navigation", False, False)
+POWER = SubSystem("Power", False, False)
 LIGHTSPEEDDRIVE = SubSystem("Light Speed Drive", False, False)
 LIFESUPPORT = SubSystem("Life Support", False, False)
 
 
 class Tools:
-    """Class for tools"""
+    """
+    Class for tools
+    """
     def __init__(self, name, durability):
         self.name = name
         self.durability = durability
 
 
 class Inventory:
-    """Class for storing Inventory"""
+    """
+    Class for storing Inventory
+    """
     def __init__(self):
         self.tools = {}
 
@@ -73,7 +81,9 @@ class Inventory:
 
 
 def directions(values):
-    """directions function"""
+    """
+    directions function
+    """
     count = len(values)
     print(f"You have {count} directions to go...")
     print("Please choose one of the following")
@@ -86,13 +96,17 @@ def directions(values):
 
 
 def tools():
-    """Function to collect a random tool"""
-    print("Congratulations you have found a room containing tools")
+    """
+    Function to collect a random tool
+    """
+    print("Congratulations you have found a room containing a tool")
     print("You look around and find a box that looks hopefull")
 
 
 def start_game():
-    """looks for input from player to begin the adventure"""
+    """
+    looks for input from player to begin the adventure
+    """
     print("Welcome to the text adventure game Lost Space Engineer\n")
     print("The aim of the game is to explore the ship and "
           "fix any broken sub-systems")
@@ -108,7 +122,9 @@ def start_game():
 
 
 def play_check(value):
-    """Checks to see if the player has enter play and it's valid"""
+    """
+    Checks to see if the player has enter play and it's valid
+    """
     try:
         if value != "play":
             raise ValueError(
@@ -123,7 +139,9 @@ def play_check(value):
 
 
 def stage_one(PREV_POSITION):
-    """First Steps scenario"""
+    """
+    First Steps scenario
+    """
     print("You have woken from stasis. However, something doesn't seem right.")
     print("After gathering your senses you stumble out the room to find lights"
           " flickering everywhere and nobody in sight.\n")
@@ -142,15 +160,17 @@ def stage_one(PREV_POSITION):
 
 
 def stage_two():
-    """Stage Two Scenario"""
+    """
+    Stage Two Scenario
+    """
     clear()
     if POWER.power is False:
         print("You travel down a coridoor,"
               " the lights are flickering on and off.")
     else:
         print("You travel down a coridoor, the lights are blinking red")
-    print("you get to the end of the coridoor and find 2 short coridoors"
-          " with doors at the end.")
+        print("you get to the end of the coridoor and find 2 short coridoors"
+              " with doors at the end.")
     ways = ["left", "forward", "backwards"]
     direction = directions(ways)
     if direction == "left":
@@ -162,7 +182,9 @@ def stage_two():
 
 
 def stage_three():
-    """Stage Three Scenario"""
+    """
+    Stage Three Scenario
+    """
     clear()
     print("")
     print("")
@@ -179,7 +201,9 @@ def stage_three():
 
 
 def stage_four():
-    """Stage four Scenario"""
+    """
+    Stage four Scenario
+    """
     clear()
     print("")
     print("")
@@ -194,7 +218,9 @@ def stage_four():
 
 
 def stage_five():
-    """Stage five Scenario"""
+    """
+    Stage five Scenario
+    """
     clear()
     print("")
     print("")
@@ -211,7 +237,9 @@ def stage_five():
 
 
 def stage_six():
-    """Stage six Scenario"""
+    """
+    Stage six Scenario
+    """
     clear()
     print("")
     print("")
@@ -226,7 +254,9 @@ def stage_six():
 
 
 def finish():
-    """The Finish - Game Over"""
+    """
+    The Finish - Game Over
+    """
     clear()
     print("")
     print("")
