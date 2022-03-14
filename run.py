@@ -160,7 +160,7 @@ def stage_one(PREV_POSITION):
               "unable to get back in")
 
 
-def stage_two():
+def stage_two(PREV_POSITION):
     """
     Stage Two Scenario
     """
@@ -174,15 +174,16 @@ def stage_two():
               " with doors at the end.")
     ways = ["left", "forward", "backwards"]
     direction = directions(ways)
+    PREV_POSITION = "stage_two"
     if direction == "left":
         print("Power Sub system")
     elif direction == "forward":
         print("Tool")
     elif direction == "backwards":
-        stage_one()
+        stage_one(PREV_POSITION)
 
 
-def stage_three():
+def stage_three(PREV_POSITION):
     """
     Stage Three Scenario
     """
@@ -191,6 +192,7 @@ def stage_three():
     print("")
     ways = ["left", "forward", "right", "backwards"]
     direction = directions(ways)
+    PREV_POSITION = "stage_three"
     if direction == "left":
         print("Sub System Navigation")
     elif direction == "forward":
@@ -198,10 +200,10 @@ def stage_three():
     elif direction == "right":
         print("Locked Airlock")
     elif direction == "backwards":
-        stage_one()
+        stage_one(PREV_POSITION)
 
 
-def stage_four():
+def stage_four(PREV_POSITION):
     """
     Stage four Scenario
     """
@@ -210,15 +212,16 @@ def stage_four():
     print("")
     ways = ["left", "right", "backwards"]
     direction = directions(ways)
+    PREV_POSITION = "stage_four"
     if direction == "left":
         print("Sub system Life Support")
     elif direction == "right":
-        stage_five()
+        stage_five(PREV_POSITION)
     elif direction == "backwards":
-        stage_one()
+        stage_one(PREV_POSITION)
 
 
-def stage_five():
+def stage_five(PREV_POSITION):
     """
     Stage five Scenario
     """
@@ -227,17 +230,18 @@ def stage_five():
     print("")
     ways = ["left", "forward", "right", "backwards"]
     direction = directions(ways)
+    PREV_POSITION = "stage_five"
     if direction == "left":
         print("Tool")
     elif direction == "forward":
-        stage_six()
+        stage_six(PREV_POSITION)
     elif direction == "right":
         print("Sub System LSD")
     elif direction == "backwards":
-        stage_four()
+        stage_four(PREV_POSITION)
 
 
-def stage_six():
+def stage_six(PREV_POSITION):
     """
     Stage six Scenario
     """
@@ -246,12 +250,13 @@ def stage_six():
     print("")
     ways = ["forward", "right", "backwards"]
     direction = directions(ways)
+    PREV_POSITION = "stage_six"
     if direction == "forward":
         finish()
     elif direction == "right":
         print("Tool")
     elif direction == "backwards":
-        stage_five()
+        stage_five(PREV_POSITION)
 
 
 def finish():
