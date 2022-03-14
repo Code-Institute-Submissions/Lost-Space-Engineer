@@ -142,6 +142,7 @@ def stage_one(PREV_POSITION):
     """
     First Steps scenario
     """
+    clear()
     print("You have woken from stasis. However, something doesn't seem right.")
     print("After gathering your senses you stumble out the room to find lights"
           " flickering everywhere and nobody in sight.\n")
