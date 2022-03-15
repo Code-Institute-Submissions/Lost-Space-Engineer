@@ -50,10 +50,10 @@ class SubSystem:
             print(f"{system} is now repaired! Well done!")
 
 
-NAVIGATION = SubSystem("Navigation", False, False)
+NAV = SubSystem("Navigation", False, False)
 POWER = SubSystem("Power", False, False)
-LIGHTSPEEDDRIVE = SubSystem("Light Speed Drive", False, False)
-LIFESUPPORT = SubSystem("Life Support", False, False)
+LIGHTSPEED = SubSystem("Light Speed Drive", False, False)
+LIFESUP = SubSystem("Life Support", False, False)
 
 
 class Inventory:
@@ -248,7 +248,11 @@ def stage_six(PREV_POSITION):
     direction = directions(ways)
     PREV_POSITION = "stage_six"
     if direction == "forward":
-        finish()
+        if POWER.fixed and NAV.fixed and LIFESUP.fixed and LIGHTSPEED.fixed:
+            finish()
+        else:
+            print("The door is locked, not all Sub-Systems have been repaired")
+            stage_six(PREV_POSITION)
     elif direction == "right":
         print("Tool")
     elif direction == "backwards":
