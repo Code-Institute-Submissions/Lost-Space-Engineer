@@ -100,12 +100,13 @@ def tools():
     gettool = prompt("")
 
 
-def repair_system():
+def repair_system(system):
     """
     Function to run when repairing a subsystem.
     This calls on the subsystem class.
     """
-
+    print(f"You have found the {system} system borken and is"
+          " in need of repair")
 
 
 def start_game():
@@ -200,8 +201,9 @@ def stage_three(PREV_POSITION):
     ways = ["left", "forward", "right", "backwards"]
     direction = directions(ways)
     PREV_POSITION = "stage_three"
+    subsystem = "Navigation"
     if direction == "left":
-        print("Sub System Navigation")
+        repair_system(subsystem)
     elif direction == "forward":
         print("Tool")
     elif direction == "right":
