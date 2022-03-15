@@ -80,12 +80,6 @@ class Inventory:
     def add_item(self, tool):
         self.tools[tool.name] = tool
 
-    def print_inv(self):
-        print('\t'.join(['slot', 'Name', 'Dur']))
-        for tool in self.tools.values():
-            print('\t'.join([str(x) for x in
-                            [tool.slot, tool.name, tool.durability]]))
-
     def __str__(self):
         out = '\t'.join(['slot', 'Name', 'Dur'])
         for tool in self.tools.values():
