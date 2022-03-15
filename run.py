@@ -27,6 +27,17 @@ class DirectionValidator(Validator):
             raise ValidationError(message="This is not a correct direction!")
 
 
+class decisionValidator(Validator):
+    """
+    Yes or No Validation
+    """
+    def validate(self, document):
+        text = document.text
+        words = ["yes", "no"]
+        if text not in words:
+            raise ValidationError(message="Incorrect word try again!")
+
+
 class SubSystem:
     """
     Sub Systems
@@ -61,7 +72,8 @@ class Inventory:
     """
     Class for storing Inventory
     """
-    def __init__(self, durability):
+    def __init__(self, slot, durability):
+        self.slot = slot
         self.tools = {}
         self.durability = durability
 
@@ -69,9 +81,16 @@ class Inventory:
         self.tools[tool.name] = tool
 
     def print_inv(self):
-        print('\t'.join(['Name', 'Dur']))
+        print('\t'.join(['slot', 'Name', 'Dur']))
         for tool in self.tools.values():
-            print('\t'.join([str(x) for x in [tool.name, tool.durability]]))
+            print('\t'.join([str(x) for x in
+                            [tool.slot, tool.name, tool.durability]]))
+
+    def __str__(self):
+        out = '\t'.join(['slot', 'Name', 'Dur'])
+        for tool in self.tools.values():
+            out += '\t'.join([str(x) for x in
+                             [tool.slot, tool.name, tool.durability]])
 
 
 def directions(values):
@@ -105,8 +124,17 @@ def repair_system(system):
     Function to run when repairing a subsystem.
     This calls on the subsystem class.
     """
-    print(f"You have found the {system} system borken and is"
+    print(f"You have found the {system} room. The system is borken and is"
           " in need of repair")
+    check_inv = prompt("Would you like to check you inventory before"
+                       " attempting to fix the system?",
+                       validator=decisionValidator())
+
+    if check_inv == "yes":
+        print(Inventory)
+    print("To repair the system you need to select an item from your"
+          " inventory")
+    repair = prompt("Please choose an inventory slot to use\n")
 
 
 def start_game():
