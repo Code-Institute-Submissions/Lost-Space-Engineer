@@ -74,6 +74,8 @@ Alternatively, if using Git pod, you can click below to create your own workspac
 
 [![Open in Git pod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/robcole-dev/Lost-Space-Engineer)
 
+Please make sure to install the requirements using ```pip3 install -r requirements.txt``` in your terminal
+
 ## Credits 
 
 ### Content 
