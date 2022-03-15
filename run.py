@@ -100,6 +100,14 @@ def tools():
     gettool = prompt("")
 
 
+def repair_system():
+    """
+    Function to run when repairing a subsystem.
+    This calls on the subsystem class.
+    """
+
+
+
 def start_game():
     """
     looks for input from player to begin the adventure
@@ -155,6 +163,8 @@ def stage_one(PREV_POSITION):
     elif direction == "backwards":
         print("As you left the room the door slams shut behind you and you're "
               "unable to get back in")
+        time.sleep(5)
+        stage_one(PREV_POSITION)
 
 
 def stage_two(PREV_POSITION):
