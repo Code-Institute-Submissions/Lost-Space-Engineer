@@ -1,5 +1,6 @@
 import os
 import random
+import sys
 from prompt_toolkit.validation import Validator, ValidationError
 from prompt_toolkit.completion import WordCompleter
 from prompt_toolkit import prompt
@@ -53,15 +54,6 @@ NAVIGATION = SubSystem("Navigation", False, False)
 POWER = SubSystem("Power", False, False)
 LIGHTSPEEDDRIVE = SubSystem("Light Speed Drive", False, False)
 LIFESUPPORT = SubSystem("Life Support", False, False)
-
-
-# class Tools:
-#     """
-#     Class for tools
-#     """
-#     def __init__(self, name, durability):
-#         self.name = name
-#         self.durability = durability
 
 
 class Inventory:
@@ -268,8 +260,11 @@ def finish():
     The Finish - Game Over
     """
     clear()
-    print("")
-    print("")
+    print("Congratulations, you have completed the text based adventure game"
+          " Lost Space engineer")
+    print("If you want to play again, please refresh your browser!\n")
+    print("Thanks for playing!!")
+    sys.exit()
 
 
 clear()
