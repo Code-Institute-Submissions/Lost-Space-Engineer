@@ -1,6 +1,7 @@
 import os
 import random
 import sys
+import time
 from prompt_toolkit.validation import Validator, ValidationError
 from prompt_toolkit.completion import WordCompleter
 from prompt_toolkit import prompt
@@ -252,6 +253,7 @@ def stage_six(PREV_POSITION):
             finish()
         else:
             print("The door is locked, not all Sub-Systems have been repaired")
+            time.sleep(5)
             stage_six(PREV_POSITION)
     elif direction == "right":
         print("Tool")
