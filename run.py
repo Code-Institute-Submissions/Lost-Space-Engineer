@@ -38,6 +38,17 @@ class decisionValidator(Validator):
             raise ValidationError(message="Incorrect word try again!")
 
 
+class slotValidator(Validator):
+    """
+    Inventory Slot Validation
+    """
+    def validate(self, document):
+        text = document.text
+        words = ["SLOT1", "SLOT2", "SLOT3", "SLOT4", "SLOT5", "SLOT6"]
+        if text not in words:
+            raise ValidationError(message="Incorrect slot number try again!")
+
+
 class SubSystem:
     """
     Sub Systems
@@ -68,31 +79,38 @@ LIGHTSPEED = SubSystem("Light Speed Drive", False, False)
 LIFESUP = SubSystem("Life Support", False, False)
 
 
-class Inventory:
+class Item(object):
+    def __init__(self, slot, name, durability):
+        self.slot = slot
+        self.name = name
+        self.durability = durability
+
+
+class Inventory(object):
     """
     Class for storing Inventory
     """
-    def __init__(self, slot, durability):
-        self.slot = slot
-        self.tools = {}
-        self.durability = durability
+    def __init__(self):
+        self.items = {}
 
-    def add_item(self, tool):
-        self.tools[tool.name] = tool
+    def add_item(self, item):
+        self.items[item.slot] = item
 
     def __str__(self):
         out = '\t'.join(['slot', 'Name', 'Dur'])
-        for tool in self.tools.values():
-            out += '\t'.join([str(x) for x in
-                             [tool.slot, tool.name, tool.durability]])
+        for item in self.items.values():
+            out += '\n' + '\t'.join([str(x) for x in
+                                    [item.slot, item.name, item.durability]])
+        return out
 
+    def __iter__(self):
+        return self
 
-SLOT1 = Inventory(1, "empty", 0)
-SLOT2 = Inventory(1, "empty", 0)
-SLOT3 = Inventory(1, "empty", 0)
-SLOT4 = Inventory(1, "empty", 0)
-SLOT5 = Inventory(1, "empty", 0)
-SLOT6 = Inventory(1, "empty", 0)
+    def __next__(self):
+        if self.items != "empty":
+            raise StopIteration()
+        nextslot = self.items
+        return nextslot
 
 
 def directions(values):
@@ -118,8 +136,18 @@ def tools():
     print("You look around and find a box that looks hopefull")
     room_tool = random.choice(aval_tools)
     room_dura = random.randint(1, 100)
-    gettool = prompt(f"You have found a {room_tool} with the "
-                     "durability of {room_dura}.")
+    print(f"You have found {room_tool} with the durability of {room_dura}.")
+    pickup = prompt("Would you like to pick up this item? (yes or no)\n",
+                    validator=decisionValidator())
+    if pickup == "yes":
+        for x in inventory:
+            if item.name == "empty":
+                print("here")
+                first = next_slot
+            else:
+                print("no here")
+                first = None
+            print(first)
 
 
 def repair_system(system):
@@ -130,14 +158,15 @@ def repair_system(system):
     print(f"You have found the {system} room. The system is borken and is"
           " in need of repair")
     check_inv = prompt("Would you like to check you inventory before"
-                       " attempting to fix the system?\n",
+                       " attempting to fix the system? (yes or no)\n",
                        validator=decisionValidator())
 
     if check_inv == "yes":
-        print(Inventory)
+        print(inventory)
     print("To repair the system you need to select an item from your"
           " inventory")
-    repair = prompt("Please choose an inventory slot to use\n")
+    repair = prompt("Please choose an inventory slot to use\n",
+                    validator=slotValidator())
 
 
 def start_game():
@@ -236,7 +265,7 @@ def stage_three(PREV_POSITION):
     if direction == "left":
         repair_system(subsystem)
     elif direction == "forward":
-        print("Tool")
+        tools()
     elif direction == "right":
         print("Locked Airlock")
     elif direction == "backwards":
@@ -317,4 +346,11 @@ def finish():
 
 
 clear()
+inventory = Inventory()
+inventory.add_item(Item("SLOT1", "empty", 0))
+inventory.add_item(Item("SLOT2", "empty", 0))
+inventory.add_item(Item("SLOT3", "empty", 0))
+inventory.add_item(Item("SLOT4", "empty", 0))
+inventory.add_item(Item("SLOT5", "empty", 0))
+inventory.add_item(Item("SLOT6", "empty", 0))
 start_game()
