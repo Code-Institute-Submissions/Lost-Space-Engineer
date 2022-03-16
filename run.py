@@ -121,7 +121,7 @@ def repair_system(system):
     print(f"You have found the {system} room. The system is borken and is"
           " in need of repair")
     check_inv = prompt("Would you like to check you inventory before"
-                       " attempting to fix the system?",
+                       " attempting to fix the system?\n",
                        validator=decisionValidator())
 
     if check_inv == "yes":
