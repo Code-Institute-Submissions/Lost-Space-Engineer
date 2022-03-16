@@ -54,6 +54,10 @@ Code that was used to develop this site are:
 
 [Python](https://www.python.org/)
 
+## Data Model
+
+
+
 
 ## Testing
 
@@ -61,17 +65,18 @@ For all testing, please refer to the [TESTING.md](TESTING.md) file.
 
 ## Deployment
 
- The site was deployed to Heroku. The steps to deploy are as follows: 
- - We need to install everything in the requirements.txt file. To do this we run the following command 
+The site was deployed to Heroku. The steps to deploy are as follows: 
+- We need to install everything in the requirements.txt file. To do this we run the following command 
  
     ```pip3 install -r requirements.txt```
- - Login to Heroku and on the dasboard click New and then click Create new app
- - Give the App a name and select your region, then click create app
- - Click settings and then click Reveal config Vars. This is where we need to set a couple of things.
- - In the Key box enter PORT and in the value enter 8000
- - Next we need to add 2 buildpacks. One for python and one for nodejs. Please note that they need to be in an order. python needs to be at the top of the list with nodjs below.
- - Click deploy from the menu at the top, then click github.
- - enter the repositry name and click search. If found the repositry will appear below, click connect.
+- 
+- Login to Heroku and on the dasboard click New and then click Create new app
+- Give the App a name and select your region, then click create app
+- Click settings and then click Reveal config Vars. This is where we need to set a couple of things.
+- In the Key box enter `PORT` and in the value enter `8000`
+- Next we need to add 2 buildpacks. One for python and one for nodejs. Please note that they need to be in an order. python needs to be at the top of the list with nodjs below.
+- Click deploy from the menu at the top, then click github.
+- enter the repositry name and click search. If found the repositry will appear below, click connect.
 
 [Link to deployed site](https://lost-space-engineer.herokuapp.com/)
 
