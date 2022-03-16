@@ -48,6 +48,8 @@ During development of the site a number of programs and web based applications w
 
 [Heroku](https://www.heroku.com/) - Used to host the deployed site
 
+[Promp Toolkit](https://python-prompt-toolkit.readthedocs.io/en/master/)
+
 Code that was used to develop this site are:
 
 [Python](https://www.python.org/)
@@ -87,7 +89,13 @@ Please make sure to install the requirements using ```pip3 install -r requiremen
 
 ## Credits 
 
-### Media
+### Content
 
+[Prompt Toolkit](https://python-prompt-toolkit.readthedocs.io/en/master/)
+
+[Pygothem 2019](https://youtu.be/TjUTaFcxXYo)
 
 ### Acknowledgments
+
+- Tim (Mentor)
+- Mihaela (Wife)
