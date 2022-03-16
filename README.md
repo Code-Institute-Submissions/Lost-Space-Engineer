@@ -17,6 +17,12 @@ To visit the live version of the site (hosted by Heroku) click [here](https://lo
 
 Below are a couple of screenshots of flowcharts created for this project.
 
+![Game Start](/documentation/flowcharts/game-beginning.png)
+
+![System Room](/documentation/flowcharts/sub-system-logic.png)
+
+![Tool Room](/documentation/flowcharts/tool-room.png)
+
 
 ## Features 
 
