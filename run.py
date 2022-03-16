@@ -87,6 +87,14 @@ class Inventory:
                              [tool.slot, tool.name, tool.durability]])
 
 
+SLOT1 = Inventory(1, "empty", 0)
+SLOT2 = Inventory(1, "empty", 0)
+SLOT3 = Inventory(1, "empty", 0)
+SLOT4 = Inventory(1, "empty", 0)
+SLOT5 = Inventory(1, "empty", 0)
+SLOT6 = Inventory(1, "empty", 0)
+
+
 def directions(values):
     """
     directions function
@@ -110,7 +118,8 @@ def tools():
     print("You look around and find a box that looks hopefull")
     room_tool = random.choice(aval_tools)
     room_dura = random.randint(1, 100)
-    gettool = prompt("")
+    gettool = prompt(f"You have found a {room_tool} with the "
+                     "durability of {room_dura}.")
 
 
 def repair_system(system):
