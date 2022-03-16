@@ -1,11 +1,14 @@
-# The Lost Space Engineer
+# Lost Space Engineer
 
-
+Lost Space Enigneer is a text based adventure game where the player explores a ship and fixes system and collects tools. The game finishes when the player fixes all the systems and heads to the command center.
 
 To visit the live version of the site (hosted by Heroku) click [here](https://lost-space-engineer.herokuapp.com/)
 
 
 ## User Stories
+- As a user, I would like to be able to choose a direction
+- As a user, I would like to be able to store tool in an inventory system
+- As a user, I would like to have tools with durability
 
 
 ## UX
@@ -77,9 +80,6 @@ Alternatively, if using Git pod, you can click below to create your own workspac
 Please make sure to install the requirements using ```pip3 install -r requirements.txt``` in your terminal
 
 ## Credits 
-
-### Content 
-
 
 ### Media
 
