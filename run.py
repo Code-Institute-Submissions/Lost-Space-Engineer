@@ -103,15 +103,6 @@ class Inventory(object):
                                     [item.slot, item.name, item.durability]])
         return out
 
-    def __iter__(self):
-        return self
-
-    def __next__(self):
-        if self.items != "empty":
-            raise StopIteration()
-        nextslot = self.items
-        return nextslot
-
 
 def directions(values):
     """
