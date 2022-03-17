@@ -130,22 +130,20 @@ def directions(values):
 
 def tools():
     """
-    Function to collect a random tool
+    Function that runs when the player enters a tool room.
     """
-    print("Congratulations you have found a room containing a tool")
     print("You look around and find a box that looks hopefull")
     room_tool = random.choice(aval_tools)
     room_dura = random.randint(1, 100)
     print(f"You have found {room_tool} with the durability of {room_dura}.")
-    pickup = prompt("Would you like to pick up this item? (yes or no)\n",
-                    validator=decisionValidator())
+    pickup = input("Would you like to pick up this item? (yes or no)\n")
     if pickup == "yes":
         for x in inventory:
             print(x[1])
+            inventory.add_item(Item(x[1], room_tool, room_dura))
             break
-    slot = x[1]
-
-    slot
+    else:
+        print(f"You leave the {room_tool} where it is and exit the room")
 
 
 def repair_system(system):
