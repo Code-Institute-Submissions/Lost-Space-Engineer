@@ -136,7 +136,8 @@ def tools():
     room_tool = random.choice(aval_tools)
     room_dura = random.randint(1, 100)
     print(f"You have found {room_tool} with the durability of {room_dura}.")
-    pickup = input("Would you like to pick up this item? (yes or no)\n")
+    pickup = prompt("Would you like to pick up this item? (yes or no)\n",
+                    validator=decisionValidator())
     if pickup == "yes":
         for x in inventory:
             print(x[1])
