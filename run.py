@@ -110,6 +110,8 @@ class Inventory(object):
         for item in self.items.values():
             if item.name == "empty":
                 return item.name, item.slot
+            else:
+                continue
             raise StopIteration
 
 
