@@ -58,6 +58,12 @@ class SubSystem:
         self.power = power
         self.fixed = fixed
 
+    def system_status(self):
+        if self.fixed is False:
+            return False
+        else:
+            return True
+
     def power_change(self, system, power):
         if power is True:
             print(f"{system} is currently online and doesn't need repairing")
@@ -66,11 +72,11 @@ class SubSystem:
             print(f"{system} is coming online")
 
     def repair(self, fixed):
-        if fixed is True:
-            print(f"{system} is currently in working order")
+        if self.fixed is True:
+            print("System is currently in working order")
         else:
-            self.fixed = False
-            print(f"{system} is now repaired! Well done!")
+            self.power = True
+            self.fixed = True
 
 
 NAV = SubSystem("Navigation", False, False)
@@ -102,6 +108,14 @@ class Inventory(object):
             out += '\n' + '\t'.join([str(x) for x in
                                     [item.slot, item.name, item.durability]])
         return out
+
+    def tool_status(self, tool):
+        for item in self.items.values():
+            if item.slot == tool:
+                return item.name, item.durability
+            else:
+                continue
+            raise StopIteration
 
     def __iter__(self):
         return self
@@ -154,18 +168,64 @@ def repair_system(system):
     Function to run when repairing a subsystem.
     This calls on the subsystem class.
     """
-    print(f"You have found the {system} room. The system is borken and is"
+    if system == "Navigation":
+        system = NAV
+        message = "Navigation"
+    elif system == "Power":
+        system = POWER
+        message = "Power"
+    elif system == "Light Speed Drive":
+        system = LIGHTSPEED
+        message = "Light Speed Drive"
+    elif system == "Life Support":
+        system = LIFESUP
+        message = "Life Support"
+    print(f"You have found the {message} room.\nThe system is broken and is"
           " in need of repair")
-    check_inv = prompt("Would you like to check you inventory before"
-                       " attempting to fix the system? (yes or no)\n",
-                       validator=decisionValidator())
+    systemfixed = SubSystem.system_status(system)
+    while systemfixed is False:
+        check_inv = prompt("Would you like to check your inventory before"
+                           " attempting to fix the system? (yes or no)\n",
+                           validator=decisionValidator())
+        dura_required = random.randint(1, 100)
+        if check_inv == "yes":
+            print(inventory)
 
-    if check_inv == "yes":
-        print(inventory)
-    print("To repair the system you need to select an item from your"
-          " inventory")
-    repair = prompt("Please choose an inventory slot to use\n",
-                    validator=slotValidator())
+            print("To repair the system you need to select an item from your"
+                  " inventory")
+            repair = prompt("Please choose an inventory slot to use\n",
+                            validator=slotValidator())
+            dura = inventory.tool_status(repair)
+
+        if dura[1] > dura_required:
+            print(f"You have selected {dura[0]}"
+                  f" with a durability of {dura[1]}.")
+            print(f"The {message} system needs {dura_required} points to"
+                  " complete the repair")
+            confirm = prompt("Do you wish to continue using this tool?"
+                             " (yes or no)\n",
+                             validator=decisionValidator())
+            if confirm == "yes":
+                print(f"You use the {dura[0]} to repair the system")
+                dura_remaining = dura[1] - dura_required
+                inventory.add_item(Item(repair, dura[0], dura_remaining))
+                SubSystem.repair(system, True)
+                systemfixed = True
+                time.sleep(2)
+                print(f"The {message} System has now been fixed!")
+        else:
+            print(f"The {dura[0]} you have selected doesn't have"
+                  " enough durability points.")
+            confirm = prompt("Do you wish to continue using this tool?"
+                             " (yes or no)\n",
+                             validator=decisionValidator())
+            if confirm == "yes":
+                dura_remaining = dura_required - dura[1]
+                print(f"You use the {dura[0]} to repair the system")
+                inventory.add_item(Item(repair, "empty", 0))
+                time.sleep(2)
+                print("You brake the tool but the system still has"
+                      f" {dura_remaining} points remaining")
 
 
 def start_game():
@@ -265,8 +325,10 @@ def stage_three(PREV_POSITION):
         repair_system(subsystem)
     elif direction == "forward":
         tools()
+        stage_three(PREV_POSITION)
     elif direction == "right":
         print("Locked Airlock")
+        stage_three(PREV_POSITION)
     elif direction == "backwards":
         stage_one(PREV_POSITION)
 
