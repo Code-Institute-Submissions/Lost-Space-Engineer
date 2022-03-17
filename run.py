@@ -103,6 +103,15 @@ class Inventory(object):
                                     [item.slot, item.name, item.durability]])
         return out
 
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        for item in self.items.values():
+            if item.name == "empty":
+                return item.name, item.slot
+            raise StopIteration
+
 
 def directions(values):
     """
@@ -132,13 +141,11 @@ def tools():
                     validator=decisionValidator())
     if pickup == "yes":
         for x in inventory:
-            if item.name == "empty":
-                print("here")
-                first = next_slot
-            else:
-                print("no here")
-                first = None
-            print(first)
+            print(x[1])
+            break
+    slot = x[1]
+
+    slot
 
 
 def repair_system(system):
