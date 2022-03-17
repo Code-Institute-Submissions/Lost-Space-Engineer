@@ -302,8 +302,9 @@ def stage_two(PREV_POSITION):
     ways = ["left", "forward", "backwards"]
     direction = directions(ways)
     PREV_POSITION = "stage_two"
+    subsystem = "Power"
     if direction == "left":
-        print("Power Sub system")
+        repair_system(subsystem)
     elif direction == "forward":
         tools()
     elif direction == "backwards":
@@ -343,8 +344,9 @@ def stage_four(PREV_POSITION):
     ways = ["left", "right", "backwards"]
     direction = directions(ways)
     PREV_POSITION = "stage_four"
+    subsystem = "Life Support"
     if direction == "left":
-        print("Sub system Life Support")
+        repair_system(subsystem)
     elif direction == "right":
         stage_five(PREV_POSITION)
     elif direction == "backwards":
@@ -361,12 +363,13 @@ def stage_five(PREV_POSITION):
     ways = ["left", "forward", "right", "backwards"]
     direction = directions(ways)
     PREV_POSITION = "stage_five"
+    subsystem = "Light Speed Drive"
     if direction == "left":
-        print("Tool")
+        tools()
     elif direction == "forward":
         stage_six(PREV_POSITION)
     elif direction == "right":
-        print("Sub System LSD")
+        repair_system(subsystem)
     elif direction == "backwards":
         stage_four(PREV_POSITION)
 
@@ -389,7 +392,7 @@ def stage_six(PREV_POSITION):
             time.sleep(5)
             stage_six(PREV_POSITION)
     elif direction == "right":
-        print("Tool")
+        tools()
     elif direction == "backwards":
         stage_five(PREV_POSITION)
 
