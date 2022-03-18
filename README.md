@@ -199,7 +199,7 @@ The site was deployed to Heroku. The steps to deploy are as follows:
 - We need to install everything in the requirements.txt file. To do this we run the following command 
  
     ```pip3 install -r requirements.txt```
-- Login / signup to [Herku](https://id.heroku.com/login)
+- Login / signup to [Heroku](https://id.heroku.com/login)
 - On the dasboard, once logged in, click New and then click Create new app
 - Give the App a name and select your region, then click create app
 - Click settings and then click Reveal config Vars. This is where we need to set a couple of things.
