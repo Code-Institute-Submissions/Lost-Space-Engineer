@@ -9,7 +9,7 @@ To visit the live version of the site (hosted by Heroku) click [here](https://lo
 - As a user, I would like to be able to choose a direction
 - As a user, I would like to be able to store tool in an inventory system
 - As a user, I would like to have tools with durability
-
+- As a user, I would like to have objectives to complete the end game
 
 ## UX
 
@@ -23,15 +23,39 @@ Below are a couple of screenshots of flowcharts created for this project.
 
 ![Tool Room](/documentation/flowcharts/tool-room.png)
 
+![Game Map](/documentation/flowcharts/game-map.jpg)
+
 
 ## Features 
 
 Below are a list of key features and future features.
 
 ### Existing Features
+- __First Load__
+    - The user is prompted with a welcome message.
+    - The user is asked to type play when they are ready to enter the game.
 
+    ![Welcome Message](/documentation/readme/welcome-message.png)
+
+- __Input Validation__
+    - When the user enters a word the system doesn't recognise it prompts the user with a warning
+
+    ![Validation](/documentation/readme/input-validation.png)
+
+- __Inventory__
+    - While explore the game the user can find tools and place them in their inventory
+
+    ![Inventory 1](/documentation/readme/inventory.png)
+    
+    ![Inventory 2](/documentation/readme/inventory-slots.png)
+
+- __Objectives__
+    - There are 4 objectives to repair before the user can complete the game
+
+    ![Objectives](/documentation/readme/objectives.png)
 
 ### Features Left to Implement
+- 
 
 
 ## Technologies Used
