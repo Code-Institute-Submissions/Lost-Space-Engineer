@@ -259,7 +259,7 @@ def repair_system(system):
                 inventory.add_item(Item(repair, "empty", 0))
                 time.sleep(2)
                 print("You brake the tool but the system still has"
-                      f" {dura_remaining} points remaining")
+                      f" {dura_required} points remaining")
 # Game functions
 
 
