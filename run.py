@@ -218,7 +218,7 @@ def repair_system(system):
     systemfixed = SubSystem.system_status(system)
     while systemfixed is False:
         check_inv = prompt("Would you like to check your inventory before"
-                           " attempting to fix the system? (yes or no)\n",
+                           " attempting to fix the system?\n (yes or no)\n",
                            validator=decisionValidator())
         dura_required = random.randint(1, 100)
         if check_inv == "yes":
