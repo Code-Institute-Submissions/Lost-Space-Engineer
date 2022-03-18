@@ -188,9 +188,14 @@ def tools():
                     validator=decisionValidator())
     if pickup == "yes":
         for x in inventory:
-            print(x[1])
-            inventory.add_item(Item(x[1], room_tool, room_dura))
-            break
+            if x is not None:
+                print(x[1])
+                inventory.add_item(Item(x[1], room_tool, room_dura))
+                break
+            else:
+                print("Your Inventory is full!")
+                time.sleep(3)
+                break
     else:
         print(f"You leave the {room_tool} where it is and exit the room")
 
