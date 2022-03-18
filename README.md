@@ -1,6 +1,6 @@
 # Lost Space Engineer
 
-Lost Space Enigneer is a text based adventure game where the player explores a ship and fixes system and collects tools. The game finishes when the player fixes all the systems and heads to the command center.
+Lost Space Enigneer is a text based adventure game where the player explores a ship, fixes system and collects tools. The game finishes when the player fixes all the systems and heads to the command center.
 
 To visit the live version of the site (hosted by Heroku) click [here](https://lost-space-engineer.herokuapp.com/)
 
@@ -63,6 +63,9 @@ Below are a list of key features and future features.
 
 - __Health__
     - Currently there is no health in the game. I want to add this in conjunction with enermies as they will be able to inflict damage to the player.
+
+- __Colour__
+    - Currently the text adventure game is the default colours. I would like to add some colour to messages and warnings throughout the game.
 
 
 ## Technologies Used
