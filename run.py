@@ -216,11 +216,11 @@ def repair_system(system):
     print(f"You have found the {message} room.\nThe system is broken and is"
           " in need of repair")
     systemfixed = SubSystem.system_status(system)
+    dura_required = random.randint(1, 100)
     while systemfixed is False:
         check_inv = prompt("Would you like to check your inventory before"
                            " attempting to fix the system?\n (yes or no)\n",
                            validator=decisionValidator())
-        dura_required = random.randint(1, 100)
         if check_inv == "yes":
             print(inventory)
 
