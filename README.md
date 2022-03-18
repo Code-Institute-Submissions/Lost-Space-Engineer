@@ -96,7 +96,7 @@ Code that was used to develop this site are:
     - There is a function to return the values of the item name and durability.
     - Then there is the __iter__ and __next__ which enables the class to be iterable.
 
-```
+```python
 class Inventory(object):
     """
     Stores the Tools in 6 slots.
@@ -138,7 +138,7 @@ class Inventory(object):
 - __Items__
     - This is a simple function that the Invetory Class calls on to Add, modify and print the items in the inventory
 
-```
+```python
     class Item(object):
     """
     Class for defining the Tools atributes (Slot number, Name, Durability)
@@ -152,7 +152,7 @@ class Inventory(object):
     - The SubSystem class controls the 4 objectives in the game.
     - This controls the status of each objective
 
-```
+```python
     class SubSystem:
     """
     Class to store the sub system
@@ -196,8 +196,8 @@ The site was deployed to Heroku. The steps to deploy are as follows:
 - We need to install everything in the requirements.txt file. To do this we run the following command 
  
     ```pip3 install -r requirements.txt```
-- 
-- Login to Heroku and on the dasboard click New and then click Create new app
+- Login / signup to [Herku](https://id.heroku.com/login)
+- On the dasboard, once logged in, click New and then click Create new app
 - Give the App a name and select your region, then click create app
 - Click settings and then click Reveal config Vars. This is where we need to set a couple of things.
 - In the Key box enter `PORT` and in the value enter `8000`
