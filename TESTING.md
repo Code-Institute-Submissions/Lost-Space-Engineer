@@ -51,16 +51,20 @@ __System Repair__
 
 ## User Story Tests
 - As a user, I would like to be able to choose a direction
-![Directions](/documentation/testing/stage-three.png)
+
+    ![Directions](/documentation/testing/stage-three.png)
 
 - As a user, I would like to be able to store tool in an inventory system
-![Store Tools](/documentation/testing/tool.png)
+
+    ![Store Tools](/documentation/testing/tool.png)
 
 - As a user, I would like to have tools with durability
-![Durability](/documentation/readme/inventory-slots.png)
+
+    ![Durability](/documentation/readme/inventory-slots.png)
 
 - As a user, I would like to have objectives to complete the end game
-![Objectives](/documentation/testing/objective.png)
+
+    ![Objectives](/documentation/testing/objective.png)
 
 ## Fixed Bugs
 During development, I ran into some bugs, errors, and issues which I have successfully debugged and troubleshot.
