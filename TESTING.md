@@ -72,6 +72,7 @@ You can find them on the issues tracker on the repository. [Here](https://github
 - Error when running program "TypeError: metaclass" (Issue [#3](https://github.com/robcole-dev/Lost-Space-Engineer/issues/3))
 - Error when Progressing from stage 1 (Issue [#4](https://github.com/robcole-dev/Lost-Space-Engineer/issues/4))
 - Subsystem durability issue (Issue [#5](https://github.com/robcole-dev/Lost-Space-Engineer/issues/5))
+- Error when picking tool up (Issue [#6](https://github.com/robcole-dev/Lost-Space-Engineer/issues/6))
 
 ## Unfixed Bugs
 
