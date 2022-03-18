@@ -332,8 +332,9 @@ def stage_three(PREV_POSITION):
     Stage Three Scenario
     """
     clear()
-    print("")
-    print("")
+    print("You travel down a corridoor.")
+    print("you get to the end of the coridoor and find 3 coridoors"
+          " with doors at the end.")
     ways = ["left", "forward", "right", "backwards"]
     direction = directions(ways)
     PREV_POSITION = "stage_three"
@@ -355,8 +356,9 @@ def stage_four(PREV_POSITION):
     Stage four Scenario
     """
     clear()
-    print("")
-    print("")
+    print("You travel down a corridoor.")
+    print("you get to the end of the coridoor and find 2 coridoors"
+          " with doors at the end.")
     ways = ["left", "right", "backwards"]
     direction = directions(ways)
     PREV_POSITION = "stage_four"
@@ -374,8 +376,9 @@ def stage_five(PREV_POSITION):
     Stage five Scenario
     """
     clear()
-    print("")
-    print("")
+    print("You travel down a corridoor.")
+    print("you get to the end of the coridoor and find 4 coridoors"
+          " with doors at the end.")
     ways = ["left", "forward", "right", "backwards"]
     direction = directions(ways)
     PREV_POSITION = "stage_five"
@@ -395,8 +398,9 @@ def stage_six(PREV_POSITION):
     Stage six Scenario
     """
     clear()
-    print("")
-    print("")
+    print("You travel down a corridoor.")
+    print("you get to the end of the coridoor and find 1 short coridoor"
+          " with doors at the end and a door to what looks to be an elevator.")
     ways = ["forward", "right", "backwards"]
     direction = directions(ways)
     PREV_POSITION = "stage_six"
