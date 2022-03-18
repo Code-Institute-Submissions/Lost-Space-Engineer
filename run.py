@@ -409,7 +409,8 @@ def stage_six(PREV_POSITION):
     clear()
     print("You travel down a corridoor.")
     print("you get to the end of the coridoor and find 1 short coridoor"
-          " with doors at the end and a door to what looks to be an elevator.")
+          " with a door at the end")
+    print("There is also a door to what looks to be an elevator.")
     ways = ["forward", "right", "backwards"]
     direction = directions(ways)
     PREV_POSITION = "stage_six"
