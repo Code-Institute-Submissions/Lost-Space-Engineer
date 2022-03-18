@@ -1,3 +1,4 @@
+# Imports
 import os
 import random
 import sys
@@ -5,20 +6,24 @@ import time
 from prompt_toolkit.validation import Validator, ValidationError
 from prompt_toolkit.completion import WordCompleter
 from prompt_toolkit import prompt
-
+# Globals
 aval_tools = ["Ductape", "Spanner", "Hammer", "Screwdriver", "String",
               "Super Glue"]
 
 PREV_POSITION = ""
 
+# Clear function
+
 
 def clear():
     os.system("cls" if os.name == "nt" else "clear")
 
+# Input validators
+
 
 class DirectionValidator(Validator):
     """
-    Direction validator
+    Direction validator to control user input
     """
     def validate(self, document):
         text = document.text
@@ -29,7 +34,7 @@ class DirectionValidator(Validator):
 
 class decisionValidator(Validator):
     """
-    Yes or No Validation
+    Yes or No Validation to control user input
     """
     def validate(self, document):
         text = document.text
@@ -40,7 +45,7 @@ class decisionValidator(Validator):
 
 class slotValidator(Validator):
     """
-    Inventory Slot Validation
+    Inventory Slot Validation to control user input
     """
     def validate(self, document):
         text = document.text
@@ -49,9 +54,44 @@ class slotValidator(Validator):
             raise ValidationError(message="Incorrect slot number try again!")
 
 
+def play_check(value):
+    """
+    Checks to see if the player has enter play and it's valid
+    """
+    try:
+        if value != "play":
+            raise ValueError(
+                "Please type 'play' in all lowercase"
+            )
+    except ValueError as e:
+        clear()
+        print(f"Invalid data: {e}, please try again.\n")
+        return False
+
+    return True
+
+
+def directions(values):
+    """
+    directions passed from the stage go through here
+    """
+    count = len(values)
+    print(f"You have {count} directions to go...")
+    print("Please choose one of the following")
+    print(values)
+    direction = prompt(
+        "Which way do you want to go??\n",
+        validator=DirectionValidator())
+
+    return direction
+
+# Classes for Inventory, Items and Subsystems
+
+
 class SubSystem:
     """
-    Sub Systems
+    Class to store the sub system
+    It stores System, Power Status and Fixed Status
     """
     def __init__(self, system, power, fixed):
         self.system = system
@@ -86,6 +126,9 @@ LIFESUP = SubSystem("Life Support", False, False)
 
 
 class Item(object):
+    """
+    Class for defining the Tools atributes (Slot number, Name, Durability)
+    """
     def __init__(self, slot, name, durability):
         self.slot = slot
         self.name = name
@@ -94,7 +137,9 @@ class Item(object):
 
 class Inventory(object):
     """
-    Class for storing Inventory
+    Stores the Tools in 6 slots.
+    This also has functions to add items to the inventory,
+    print an inventory list
     """
     def __init__(self):
         self.items = {}
@@ -127,21 +172,7 @@ class Inventory(object):
             else:
                 continue
             raise StopIteration
-
-
-def directions(values):
-    """
-    directions function
-    """
-    count = len(values)
-    print(f"You have {count} directions to go...")
-    print("Please choose one of the following")
-    print(values)
-    direction = prompt(
-        "Which way do you want to go??\n",
-        validator=DirectionValidator())
-
-    return direction
+# Functions for Tool seletion and repair of subsystem
 
 
 def tools():
@@ -226,11 +257,13 @@ def repair_system(system):
                 time.sleep(2)
                 print("You brake the tool but the system still has"
                       f" {dura_remaining} points remaining")
+# Game functions
 
 
 def start_game():
     """
-    looks for input from player to begin the adventure
+    looks for input from player to begin the adventure and calls
+    the validator for play
     """
     print("Welcome to the text adventure game Lost Space Engineer\n")
     print("The aim of the game is to explore the ship and "
@@ -244,23 +277,6 @@ def start_game():
             print("Good Luck and have fun!!")
             PREV_POSITION = "Start Game"
             stage_one(PREV_POSITION)
-
-
-def play_check(value):
-    """
-    Checks to see if the player has enter play and it's valid
-    """
-    try:
-        if value != "play":
-            raise ValueError(
-                "Please type 'play' in all lowercase"
-            )
-    except ValueError as e:
-        clear()
-        print(f"Invalid data: {e}, please try again.\n")
-        return False
-
-    return True
 
 
 def stage_one(PREV_POSITION):
