@@ -321,8 +321,10 @@ def stage_two(PREV_POSITION):
     subsystem = "Power"
     if direction == "left":
         repair_system(subsystem)
+        stage_two(PREV_POSITION)
     elif direction == "forward":
         tools()
+        stage_two(PREV_POSITION)
     elif direction == "backwards":
         stage_one(PREV_POSITION)
 
@@ -341,6 +343,7 @@ def stage_three(PREV_POSITION):
     subsystem = "Navigation"
     if direction == "left":
         repair_system(subsystem)
+        stage_three(PREV_POSITION)
     elif direction == "forward":
         tools()
         stage_three(PREV_POSITION)
@@ -365,6 +368,7 @@ def stage_four(PREV_POSITION):
     subsystem = "Life Support"
     if direction == "left":
         repair_system(subsystem)
+        stage_four(PREV_POSITION)
     elif direction == "right":
         stage_five(PREV_POSITION)
     elif direction == "backwards":
@@ -385,10 +389,12 @@ def stage_five(PREV_POSITION):
     subsystem = "Light Speed Drive"
     if direction == "left":
         tools()
+        stage_five(PREV_POSITION)
     elif direction == "forward":
         stage_six(PREV_POSITION)
     elif direction == "right":
         repair_system(subsystem)
+        stage_five(PREV_POSITION)
     elif direction == "backwards":
         stage_four(PREV_POSITION)
 
@@ -413,6 +419,7 @@ def stage_six(PREV_POSITION):
             stage_six(PREV_POSITION)
     elif direction == "right":
         tools()
+        stage_six(PREV_POSITION)
     elif direction == "backwards":
         stage_five(PREV_POSITION)
 
