@@ -74,6 +74,8 @@ You can find them on the issues tracker on the repository. [Here](https://github
 - Subsystem durability issue (Issue [#5](https://github.com/robcole-dev/Lost-Space-Engineer/issues/5))
 - Error when picking tool up (Issue [#6](https://github.com/robcole-dev/Lost-Space-Engineer/issues/6))
 
+![Closed Issues](/documentation/testing/closed-issues.png)
+
 ## Unfixed Bugs
 
 Currently there are no bugs that I am aware of.
