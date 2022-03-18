@@ -82,7 +82,7 @@ During development of the site a number of programs and web based applications w
 
 [Heroku](https://www.heroku.com/) - Used to host the deployed site
 
-[Promp Toolkit](https://python-prompt-toolkit.readthedocs.io/en/master/)
+[Promp Toolkit](https://python-prompt-toolkit.readthedocs.io/en/master/) - Used for input validation
 
 Code that was used to develop this site are:
 
