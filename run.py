@@ -259,6 +259,7 @@ def repair_system(system):
                              " (yes or no)\n",
                              validator=decisionValidator())
             if confirm == "yes":
+                clear()
                 dura_required = dura_required - dura[1]
                 print(f"You use the {dura[0]} to repair the system")
                 inventory.add_item(Item(repair, "empty", 0))
