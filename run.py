@@ -219,11 +219,10 @@ def repair_system(system):
     dura_required = random.randint(1, 100)
     while systemfixed is False:
         check_inv = prompt("Would you like to check your inventory before"
-                           " attempting to fix the system?\n (yes or no)\n",
+                           " attempting to fix the system?\n(yes or no)\n",
                            validator=decisionValidator())
         if check_inv == "yes":
             print(inventory)
-
             print("To repair the system you need to select an item from your"
                   " inventory")
             repair = prompt("Please choose an inventory slot to use\n",
@@ -255,7 +254,7 @@ def repair_system(system):
                              " (yes or no)\n",
                              validator=decisionValidator())
             if confirm == "yes":
-                dura_remaining = dura_required - dura[1]
+                dura_required = dura_required - dura[1]
                 print(f"You use the {dura[0]} to repair the system")
                 inventory.add_item(Item(repair, "empty", 0))
                 time.sleep(2)
