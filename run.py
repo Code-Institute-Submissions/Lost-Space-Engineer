@@ -179,6 +179,7 @@ def tools():
     """
     Function that runs when the player enters a tool room.
     """
+    clear()
     print("You look around and find a box that looks hopefull")
     room_tool = random.choice(aval_tools)
     room_dura = random.randint(1, 100)
@@ -199,6 +200,7 @@ def repair_system(system):
     Function to run when repairing a subsystem.
     This calls on the subsystem class.
     """
+    clear()
     if system == "Navigation":
         system = NAV
         message = "Navigation"
@@ -227,6 +229,8 @@ def repair_system(system):
             repair = prompt("Please choose an inventory slot to use\n",
                             validator=slotValidator())
             dura = inventory.tool_status(repair)
+        else:
+            break
 
         if dura[1] > dura_required:
             print(f"You have selected {dura[0]}"
@@ -285,8 +289,8 @@ def stage_one(PREV_POSITION):
     """
     clear()
     print("You have woken from stasis. However, something doesn't seem right.")
-    print("After gathering your senses you stumble out the room to find lights"
-          " flickering everywhere and nobody in sight.\n")
+    print("After gathering your senses you stumble out the room to find\n"
+          " lights flickering everywhere and nobody in sight.\n")
     ways = ["left", "forward", "right", "backwards"]
     direction = directions(ways)
     PREV_POSITION = "stage_one"
