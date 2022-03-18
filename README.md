@@ -55,7 +55,14 @@ Below are a list of key features and future features.
     ![Objectives](/documentation/readme/objectives.png)
 
 ### Features Left to Implement
-- 
+- __Scenario based Messages__
+    - Currently there are standard messages for each stage. I want to add messages that give the game more depth based on objectives being completed.
+
+- __Enermies (NPC)__
+    - Currently the game only has objectives to complete. I want to add NPCs to the game which the user has to defeat to progress
+
+- __Health__
+    - Currently there is no health in the game. I want to add this in conjunction with enermies as they will be able to inflict damage to the player.
 
 
 ## Technologies Used
@@ -80,6 +87,102 @@ Code that was used to develop this site are:
 
 ## Data Model
 
+### Classes
+
+- __Inventory__
+    - This class looks after the inventory within the game. 
+    - There is a function to add items to the inventory, this is also used to modify items. 
+    - There is a function to print the inventory and what is in each slot.
+    - There is a function to return the values of the item name and durability.
+    - Then there is the __iter__ and __next__ which enables the class to be iterable.
+
+```
+class Inventory(object):
+    """
+    Stores the Tools in 6 slots.
+    This also has functions to add items to the inventory,
+    print an inventory list
+    """
+    def __init__(self):
+        self.items = {}
+
+    def add_item(self, item):
+        self.items[item.slot] = item
+
+    def __str__(self):
+        out = '\t'.join(['slot', 'Name', 'Dur'])
+        for item in self.items.values():
+            out += '\n' + '\t'.join([str(x) for x in
+                                    [item.slot, item.name, item.durability]])
+        return out
+
+    def tool_status(self, tool):
+        for item in self.items.values():
+            if item.slot == tool:
+                return item.name, item.durability
+            else:
+                continue
+            raise StopIteration
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        for item in self.items.values():
+            if item.name == "empty":
+                return item.name, item.slot
+            else:
+                continue
+            raise StopIteration
+```
+- __Items__
+    - This is a simple function that the Invetory Class calls on to Add, modify and print the items in the inventory
+
+```
+    class Item(object):
+    """
+    Class for defining the Tools atributes (Slot number, Name, Durability)
+    """
+    def __init__(self, slot, name, durability):
+        self.slot = slot
+        self.name = name
+        self.durability = durability
+```
+- __Sub Systems__
+    - The SubSystem class controls the 4 objectives in the game.
+    - This controls the status of each objective
+
+```
+    class SubSystem:
+    """
+    Class to store the sub system
+    It stores System, Power Status and Fixed Status
+    """
+    def __init__(self, system, power, fixed):
+        self.system = system
+        self.power = power
+        self.fixed = fixed
+
+    def system_status(self):
+        if self.fixed is False:
+            return False
+        else:
+            return True
+
+    def power_change(self, system, power):
+        if power is True:
+            print(f"{system} is currently online and doesn't need repairing")
+        else:
+            self.power = True
+            print(f"{system} is coming online")
+
+    def repair(self, fixed):
+        if self.fixed is True:
+            print("System is currently in working order")
+        else:
+            self.power = True
+            self.fixed = True
+```
 
 
 
